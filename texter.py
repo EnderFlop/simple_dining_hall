@@ -24,4 +24,6 @@ for f in foods:
 
 #send text
 client = Client(ACCOUNT_SID, AUTH_TOKEN)
-client.messages.create(to=PHONE_NUMBER, from_=TWILIO_NUMBER, body=string)
+with open("./numbers.txt") as numbers:
+  for number in numbers:
+    client.messages.create(to=number, from_=TWILIO_NUMBER, body=string)
